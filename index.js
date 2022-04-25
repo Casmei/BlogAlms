@@ -3,11 +3,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const connetction = require('./database/database');
 
+const categoriesController = require('./categories/CategoriesController');
+const articlesController = require('./articles/ArticlesController');
 // View engine
 app.set('view engine', 'ejs');
 
 //Body parser
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Database
@@ -22,6 +24,9 @@ connetction
 
 //Satic
 app.use(express.static('public'));
+
+app.use('/', categoriesController);
+app.use('/', articlesController);
 
 app.get('/', (req, res) => {
 	res.render('index');
