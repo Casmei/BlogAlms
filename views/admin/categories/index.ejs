@@ -29,12 +29,35 @@
               <th>
                 <%= category.slug %>
               </th>
-              <th>
-                <button class="btn btn-warning">Editar</button>
-                <form action="/admin/categories/delete" class="d-inline" method="POST">
-                  <input type="hidden" name="id" value='<%= category.id %> '>
-                  <button class="btn btn-danger">Deletar</button>
-                </form>
+              <th class="" style="max-width: 70px;">
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-warning mr-3">Editar</button>
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                    Excluir
+                  </button>
+                </div>
+
+                <div class=" modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-wegth" id="exampleModalLongTitle">⚠️ Atenção!</h5>
+                      </div>
+                      <div class="modal-body">
+                        Você realmente deseja excluir esta pergunta?
+                      </div>
+                      <div class="modal-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-secondary m-0" data-dismiss="modal">Sair</button>
+                        <form action="/admin/categories/delete" method="POST">
+                          <input type="hidden" name="id" value="<%= category.id %>">
+                          <button class="btn btn-danger m-0">Excluir</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </th>
             </tr>
             <% }) %>
