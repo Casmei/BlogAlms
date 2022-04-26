@@ -29,10 +29,12 @@
               <th>
                 <%= category.slug %>
               </th>
-              <th class="" style="max-width: 70px;">
+              <th class="">
                 <div class="d-flex justify-content-end">
-                  <button class="btn btn-warning mr-3">Editar</button>
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                  <a class='' href="/admin/categories/edit/<%= category.id %> ">
+                    <button class="btn btn-warning mr-3 text-white">Editar</button>
+                  </a>
+                  <button type="button" class="  btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
                     Excluir
                   </button>
                 </div>
