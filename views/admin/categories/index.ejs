@@ -2,7 +2,11 @@
   <%- include ('../../partials/navbar.ejs') %>
     <div class="container">
       <hr>
-      <h2>Categorias</h2>
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Categorias</h2>
+        <a href="/admin/categories/new"><button class="btn btn-success">Criar nova categoria</button></a>
+
+      </div>
       <hr>
       <table class="table table-bordered">
         <thead>
@@ -24,6 +28,10 @@
               </th>
               <th>
                 <%= category.slug %>
+              </th>
+              <th>
+                <button class="btn btn-warning">Editar</button>
+                <button class="btn btn-danger">Deletar</button>
               </th>
             </tr>
             <% }) %>
