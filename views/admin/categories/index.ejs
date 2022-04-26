@@ -31,7 +31,10 @@
               </th>
               <th>
                 <button class="btn btn-warning">Editar</button>
-                <button class="btn btn-danger">Deletar</button>
+                <form action="/admin/categories/delete" class="d-inline" method="POST">
+                  <input type="hidden" name="id" value='<%= category.id %> '>
+                  <button class="btn btn-danger">Deletar</button>
+                </form>
               </th>
             </tr>
             <% }) %>
