@@ -18,9 +18,45 @@
             <th>Ações</th>
           </tr>
         </thead>
-        <tbody>
+        <% articles.forEach(article=> { %>
+          <tbody>
+            <td>
+              <%= article.id %>
+            </td>
+            <td>
+              <%= article.title %>
+            </td>
+            <td>
+              <%= article.slug %>
+            </td>
+            <td>
+              <%= article.category.title %>
+            </td>
+            <td>
+              <div class="d-flex justify-content-end">
+                <a class='' href="/admin/categories/edit/">
+                  <button class="btn btn-warning mr-3 text-white">Editar</button>
+                </a>
+                <form action="/articles/delete" method="POST" onsubmit="confirmarDelecao(event, this)">
+                  <input type="hidden" name="id" value="<%= article.id %> ">
+                  <button class="btn btn-danger">
+                    Excluir
+                  </button>
+                </form>
+              </div>
+            </td>
 
-        </tbody>
+          </tbody>
+          <% }) %>
       </table>
     </div>
     <%- include ('../../partials/footer.ejs') %>
+      <script>
+        function confirmarDelecao(event, form) {
+          event.preventDefault()
+          let decision = confirm("Você quer deletar esse artigo?")
+          if (decision) {
+            form.submit()
+          }
+        }
+      </script>
