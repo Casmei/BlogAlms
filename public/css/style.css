@@ -1,3 +1,27 @@
+
+
+
 .tox-statusbar__branding {
   display: none !important; 
+}
+
+/* ============== nav bar ============== */
+
+.wrapper {
+  margin: 0 17%;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 41px 0 30px 0;
+
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px !important;
+  color: #FFF;
+}
+
+.home-nav {
+  background: linear-gradient(88.27deg, #574AE8 0%, #3EA1DB 100%);
 }
