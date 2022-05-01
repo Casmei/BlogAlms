@@ -1,11 +1,11 @@
 const express = require('express');
-const { default: slugify } = require('slugify');
+const  slugify = require('slugify');
 const router = express.Router();
 const Category = require('../categories/Category')
 const Article = require('./Article')
 
 router.get('/admin/articles', (req, res) => {
-	res.send('ROTA DE ARTIGS');
+	res.render('admin/articles/index');
 });
 
 router.get('/admin/articles/new', (req, res) => {
@@ -14,7 +14,7 @@ router.get('/admin/articles/new', (req, res) => {
   })
 });
 
-router.post('/articles/save', (res,req) => {
+router.post('/articles/save', (req, res) => {
   let title = req.body.title;
   let body = req.body.body;
   let category = req.body.category;
