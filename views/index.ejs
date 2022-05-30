@@ -1,4 +1,24 @@
 <%- include ('partials/header.ejs') %>
   <%- include ('partials/homenavbar.ejs') %>
 
+    <body class="body">
+      <% articles.forEach(article=> { %>
+        <div class="article-content wrapper">
+          <div class="info">
+            <p class="p-0 m-0">
+              <%= new Date(article.createdAt).toLocaleDateString('pt-BR', { day: '2-digit' , month: 'numeric' ,
+                year: 'numeric' }) %>
+            </p>
+          </div>
+          <div class="titles-subs">
+            <h4 class="m-0 p-0">
+              <%= article.title %>
+            </h4>
+          </div>
+        </div>
+        <% }) %>
+
+    </body>
+
+
     <%- include ('partials/footer.ejs') %>
